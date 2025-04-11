@@ -1,0 +1,56 @@
+from _typeshed import Incomplete
+
+__all__ = ['NDArrayOperatorsMixin']
+
+class NDArrayOperatorsMixin:
+    __lt__: Incomplete
+    __le__: Incomplete
+    __eq__: Incomplete
+    __ne__: Incomplete
+    __gt__: Incomplete
+    __ge__: Incomplete
+    __add__: Incomplete
+    __radd__: Incomplete
+    __iadd__: Incomplete
+    __sub__: Incomplete
+    __rsub__: Incomplete
+    __isub__: Incomplete
+    __mul__: Incomplete
+    __rmul__: Incomplete
+    __imul__: Incomplete
+    __matmul__: Incomplete
+    __rmatmul__: Incomplete
+    __imatmul__: Incomplete
+    __truediv__: Incomplete
+    __rtruediv__: Incomplete
+    __itruediv__: Incomplete
+    __floordiv__: Incomplete
+    __rfloordiv__: Incomplete
+    __ifloordiv__: Incomplete
+    __mod__: Incomplete
+    __rmod__: Incomplete
+    __imod__: Incomplete
+    __divmod__: Incomplete
+    __rdivmod__: Incomplete
+    __pow__: Incomplete
+    __rpow__: Incomplete
+    __ipow__: Incomplete
+    __lshift__: Incomplete
+    __rlshift__: Incomplete
+    __ilshift__: Incomplete
+    __rshift__: Incomplete
+    __rrshift__: Incomplete
+    __irshift__: Incomplete
+    __and__: Incomplete
+    __rand__: Incomplete
+    __iand__: Incomplete
+    __xor__: Incomplete
+    __rxor__: Incomplete
+    __ixor__: Incomplete
+    __or__: Incomplete
+    __ror__: Incomplete
+    __ior__: Incomplete
+    __neg__: Incomplete
+    __pos__: Incomplete
+    __abs__: Incomplete
+    __invert__: Incomplete

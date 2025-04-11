@@ -1,0 +1,23 @@
+import numpy
+
+__version__: str
+cholesky_lo: numpy.ufunc
+cholesky_up: numpy.ufunc
+det: numpy.ufunc
+eig: numpy.ufunc
+eigh_lo: numpy.ufunc
+eigh_up: numpy.ufunc
+eigvals: numpy.ufunc
+eigvalsh_lo: numpy.ufunc
+eigvalsh_up: numpy.ufunc
+inv: numpy.ufunc
+lstsq: numpy.ufunc
+qr_complete: numpy.ufunc
+qr_r_raw: numpy.ufunc
+qr_reduced: numpy.ufunc
+slogdet: numpy.ufunc
+solve: numpy.ufunc
+solve1: numpy.ufunc
+svd: numpy.ufunc
+svd_f: numpy.ufunc
+svd_s: numpy.ufunc

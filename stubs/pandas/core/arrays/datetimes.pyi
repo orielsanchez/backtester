@@ -1,0 +1,83 @@
+import numpy as np
+from _typeshed import Incomplete
+from collections.abc import Iterator
+from datetime import tzinfo
+from pandas import DataFrame as DataFrame
+from pandas._libs import lib as lib, tslib as tslib
+from pandas._libs.tslibs import BaseOffset as BaseOffset, NaT as NaT, NaTType as NaTType, Resolution as Resolution, Timestamp as Timestamp, astype_overflowsafe as astype_overflowsafe, fields as fields, get_resolution as get_resolution, get_supported_dtype as get_supported_dtype, get_unit_from_dtype as get_unit_from_dtype, ints_to_pydatetime as ints_to_pydatetime, is_date_array_normalized as is_date_array_normalized, is_supported_dtype as is_supported_dtype, is_unitless as is_unitless, normalize_i8_timestamps as normalize_i8_timestamps, timezones as timezones, to_offset as to_offset, tz_convert_from_utc as tz_convert_from_utc, tzconversion as tzconversion
+from pandas._libs.tslibs.dtypes import abbrev_to_npy_unit as abbrev_to_npy_unit
+from pandas._typing import ArrayLike as ArrayLike, DateTimeErrorChoices as DateTimeErrorChoices, DtypeObj as DtypeObj, IntervalClosedType as IntervalClosedType, Self as Self, TimeAmbiguous as TimeAmbiguous, TimeNonexistent as TimeNonexistent, npt as npt
+from pandas.core.arrays import PeriodArray as PeriodArray, datetimelike as dtl
+from pandas.core.arrays._ranges import generate_regular_range as generate_regular_range
+from pandas.core.dtypes.common import DT64NS_DTYPE as DT64NS_DTYPE, INT64_DTYPE as INT64_DTYPE, is_bool_dtype as is_bool_dtype, is_float_dtype as is_float_dtype, is_string_dtype as is_string_dtype, pandas_dtype as pandas_dtype
+from pandas.core.dtypes.dtypes import DatetimeTZDtype as DatetimeTZDtype, ExtensionDtype as ExtensionDtype, PeriodDtype as PeriodDtype
+from pandas.core.dtypes.missing import isna as isna
+from pandas.errors import PerformanceWarning as PerformanceWarning
+from pandas.tseries.frequencies import get_period_alias as get_period_alias
+from pandas.tseries.offsets import Day as Day, Tick as Tick
+from pandas.util._exceptions import find_stack_level as find_stack_level
+from pandas.util._validators import validate_inclusive as validate_inclusive
+from typing import overload
+
+@overload
+def tz_to_dtype(tz: tzinfo, unit: str = ...) -> DatetimeTZDtype: ...
+@overload
+def tz_to_dtype(tz: None, unit: str = ...) -> np.dtype[np.datetime64]: ...
+
+class DatetimeArray(dtl.TimelikeOps, dtl.DatelikeOps):
+    __array_priority__: int
+    @property
+    def dtype(self) -> np.dtype[np.datetime64] | DatetimeTZDtype: ...
+    @property
+    def tz(self) -> tzinfo | None: ...
+    @tz.setter
+    def tz(self, value) -> None: ...
+    @property
+    def tzinfo(self) -> tzinfo | None: ...
+    @property
+    def is_normalized(self) -> bool: ...
+    def __array__(self, dtype: Incomplete | None = None, copy: Incomplete | None = None) -> np.ndarray: ...
+    def __iter__(self) -> Iterator: ...
+    def astype(self, dtype, copy: bool = True): ...
+    def tz_convert(self, tz) -> Self: ...
+    def tz_localize(self, tz, ambiguous: TimeAmbiguous = 'raise', nonexistent: TimeNonexistent = 'raise') -> Self: ...
+    def to_pydatetime(self) -> npt.NDArray[np.object_]: ...
+    def normalize(self) -> Self: ...
+    def to_period(self, freq: Incomplete | None = None) -> PeriodArray: ...
+    def month_name(self, locale: Incomplete | None = None) -> npt.NDArray[np.object_]: ...
+    def day_name(self, locale: Incomplete | None = None) -> npt.NDArray[np.object_]: ...
+    @property
+    def time(self) -> npt.NDArray[np.object_]: ...
+    @property
+    def timetz(self) -> npt.NDArray[np.object_]: ...
+    @property
+    def date(self) -> npt.NDArray[np.object_]: ...
+    def isocalendar(self) -> DataFrame: ...
+    year: Incomplete
+    month: Incomplete
+    day: Incomplete
+    hour: Incomplete
+    minute: Incomplete
+    second: Incomplete
+    microsecond: Incomplete
+    nanosecond: Incomplete
+    day_of_week: Incomplete
+    dayofweek = day_of_week
+    weekday = day_of_week
+    day_of_year: Incomplete
+    dayofyear = day_of_year
+    quarter: Incomplete
+    days_in_month: Incomplete
+    daysinmonth = days_in_month
+    is_month_start: Incomplete
+    is_month_end: Incomplete
+    is_quarter_start: Incomplete
+    is_quarter_end: Incomplete
+    is_year_start: Incomplete
+    is_year_end: Incomplete
+    is_leap_year: Incomplete
+    def to_julian_date(self) -> npt.NDArray[np.float64]: ...
+    def std(self, axis: Incomplete | None = None, dtype: Incomplete | None = None, out: Incomplete | None = None, ddof: int = 1, keepdims: bool = False, skipna: bool = True): ...
+
+def objects_to_datetime64(data: np.ndarray, dayfirst, yearfirst, utc: bool = False, errors: DateTimeErrorChoices = 'raise', allow_object: bool = False, out_unit: str = 'ns'): ...
+def maybe_convert_dtype(data, copy: bool, tz: tzinfo | None = None): ...

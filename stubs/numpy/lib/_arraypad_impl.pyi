@@ -1,0 +1,3 @@
+__all__ = ['pad']
+
+def pad(array, pad_width, mode: str = 'constant', **kwargs): ...

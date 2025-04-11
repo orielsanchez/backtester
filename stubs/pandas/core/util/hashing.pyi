@@ -1,0 +1,13 @@
+import numpy as np
+from collections.abc import Hashable, Iterable, Iterator
+from pandas import DataFrame as DataFrame, Index as Index, MultiIndex as MultiIndex, Series as Series
+from pandas._libs.hashing import hash_object_array as hash_object_array
+from pandas._typing import ArrayLike as ArrayLike, npt as npt
+from pandas.core.dtypes.common import is_list_like as is_list_like
+from pandas.core.dtypes.dtypes import CategoricalDtype as CategoricalDtype
+from pandas.core.dtypes.generic import ABCDataFrame as ABCDataFrame, ABCExtensionArray as ABCExtensionArray, ABCIndex as ABCIndex, ABCMultiIndex as ABCMultiIndex, ABCSeries as ABCSeries
+
+def combine_hash_arrays(arrays: Iterator[np.ndarray], num_items: int) -> npt.NDArray[np.uint64]: ...
+def hash_pandas_object(obj: Index | DataFrame | Series, index: bool = True, encoding: str = 'utf8', hash_key: str | None = ..., categorize: bool = True) -> Series: ...
+def hash_tuples(vals: MultiIndex | Iterable[tuple[Hashable, ...]], encoding: str = 'utf8', hash_key: str = ...) -> npt.NDArray[np.uint64]: ...
+def hash_array(vals: ArrayLike, encoding: str = 'utf8', hash_key: str = ..., categorize: bool = True) -> npt.NDArray[np.uint64]: ...

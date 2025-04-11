@@ -1,0 +1,6 @@
+from _typeshed import Incomplete
+
+__all__ = ['einsum', 'einsum_path']
+
+def einsum_path(*operands, optimize: str = 'greedy', einsum_call: bool = False): ...
+def einsum(*operands, out: Incomplete | None = None, optimize: bool = False, **kwargs): ...
